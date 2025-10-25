@@ -75,10 +75,10 @@ export function PortfolioSection() {
                   <CardContent className="relative aspect-square p-0">
                     <Image
                       src={
-                        portfolioItems[getPrevIndex()].image ||
+                        portfolioItems[getPrevIndex()]?.image ||
                         "/placeholder.svg"
                       }
-                      alt={portfolioItems[getPrevIndex()].title}
+                      alt={portfolioItems[getPrevIndex()]?.title || ""}
                       fill
                       className="object-cover"
                     />
@@ -92,9 +92,10 @@ export function PortfolioSection() {
                   <CardContent className="bg-muted/50 relative aspect-square p-0">
                     <Image
                       src={
-                        portfolioItems[currentIndex].image || "/placeholder.svg"
+                        portfolioItems[currentIndex]?.image ||
+                        "/placeholder.svg"
                       }
-                      alt={portfolioItems[currentIndex].title}
+                      alt={portfolioItems[currentIndex]?.title || ""}
                       fill
                       className="object-cover"
                       priority
