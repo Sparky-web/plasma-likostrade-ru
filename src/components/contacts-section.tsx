@@ -7,29 +7,29 @@ import { config } from "~/lib/config";
 
 export function ContactsSection() {
   return (
-    <section className="py-24 bg-background scroll-mt-[100px]" id="contacts">
+    <section className="bg-background scroll-mt-[100px] py-24" id="contacts">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4 text-balance">
+        <div className="mb-16 text-center">
+          <h2 className="text-foreground mb-4 text-3xl font-bold text-balance md:text-4xl">
             Контакты
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto text-pretty">
+          <p className="text-muted-foreground mx-auto max-w-2xl text-lg text-pretty">
             Свяжитесь с нами удобным для вас способом
           </p>
         </div>
 
-        <div className="max-w-8xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <div className="max-w-8xl mx-auto grid grid-cols-1 gap-12 lg:grid-cols-2">
           {/* Информация о контактах */}
           <div className="space-y-4">
             <Card>
               <CardContent className="px-4">
                 <div className="flex items-start gap-3">
-                  <MapPin className="h-5 w-5 text-accent flex-shrink-0 mt-0.5" />
+                  <MapPin className="text-accent mt-0.5 h-5 w-5 flex-shrink-0" />
                   <div>
-                    <h3 className="font-semibold text-foreground mb-1 text-sm">
+                    <h3 className="text-foreground mb-1 text-sm font-semibold">
                       Адрес
                     </h3>
-                    <p className="text-sm text-muted-foreground">
+                    <p className="text-muted-foreground text-sm">
                       {config.contact.address}
                     </p>
                   </div>
@@ -40,14 +40,14 @@ export function ContactsSection() {
             <Card>
               <CardContent className="px-4">
                 <div className="flex items-start gap-3">
-                  <Phone className="h-5 w-5 text-accent flex-shrink-0 mt-0.5" />
+                  <Phone className="text-accent mt-0.5 h-5 w-5 flex-shrink-0" />
                   <div>
-                    <h3 className="font-semibold text-foreground mb-1 text-sm">
+                    <h3 className="text-foreground mb-1 text-sm font-semibold">
                       Телефон
                     </h3>
                     <a
                       href={config.contact.phoneHref}
-                      className="text-accent hover:underline text-sm"
+                      className="text-accent text-sm hover:underline"
                     >
                       {config.contact.phone}
                     </a>
@@ -59,14 +59,14 @@ export function ContactsSection() {
             <Card>
               <CardContent className="px-4">
                 <div className="flex items-start gap-3">
-                  <Mail className="h-5 w-5 text-accent flex-shrink-0 mt-0.5" />
+                  <Mail className="text-accent mt-0.5 h-5 w-5 flex-shrink-0" />
                   <div>
-                    <h3 className="font-semibold text-foreground mb-1 text-sm">
+                    <h3 className="text-foreground mb-1 text-sm font-semibold">
                       Email
                     </h3>
                     <a
                       href={config.contact.emailHref}
-                      className="text-accent hover:underline text-sm"
+                      className="text-accent text-sm hover:underline"
                     >
                       {config.contact.email}
                     </a>
@@ -78,14 +78,14 @@ export function ContactsSection() {
             <Card>
               <CardContent className="px-4">
                 <div className="flex items-start gap-3">
-                  <MessageCircle className="h-5 w-5 text-accent flex-shrink-0 mt-0.5" />
+                  <MessageCircle className="text-accent mt-0.5 h-5 w-5 flex-shrink-0" />
                   <div>
-                    <h3 className="font-semibold text-foreground mb-1 text-sm">
+                    <h3 className="text-foreground mb-1 text-sm font-semibold">
                       WhatsApp
                     </h3>
                     <a
                       href={config.contact.whatsappHref}
-                      className="text-accent hover:underline text-sm"
+                      className="text-accent text-sm hover:underline"
                       target="_blank"
                       rel="noopener noreferrer"
                     >
@@ -99,12 +99,12 @@ export function ContactsSection() {
             <Card>
               <CardContent className="px-4">
                 <div className="flex items-start gap-3">
-                  <Clock className="h-5 w-5 text-accent flex-shrink-0 mt-0.5" />
+                  <Clock className="text-accent mt-0.5 h-5 w-5 flex-shrink-0" />
                   <div>
-                    <h3 className="font-semibold text-foreground mb-1 text-sm">
+                    <h3 className="text-foreground mb-1 text-sm font-semibold">
                       Режим работы
                     </h3>
-                    <p className="text-sm text-muted-foreground">
+                    <p className="text-muted-foreground text-sm">
                       {config.contact.workingHours.weekday}
                       <br />
                       {config.contact.workingHours.saturday}
@@ -129,7 +129,7 @@ export function ContactsSection() {
           </div>
 
           {/* Карта */}
-          <div className="rounded-lg overflow-hidden border border-border h-full min-h-[300px] lg:min-h-0 bg-muted/30">
+          <div className="border-border bg-muted/30 h-full min-h-[300px] overflow-hidden rounded-lg border lg:min-h-0">
             <div
               style={{
                 position: "relative",

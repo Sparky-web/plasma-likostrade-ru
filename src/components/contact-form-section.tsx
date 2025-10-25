@@ -22,7 +22,7 @@ export function ContactFormSection() {
   const [isLoading, setIsLoading] = useState(false);
 
   const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) => {
     const { name, value } = e.target;
     setFormData((prev) => ({
@@ -71,32 +71,32 @@ export function ContactFormSection() {
 
   return (
     <section
-      className="bg-gradient-to-br from-background via-muted/20 to-background scroll-mt-[100px]"
+      className="from-background via-muted/20 to-background scroll-mt-[100px] bg-gradient-to-br"
       id="contact-form"
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="mb-16"></div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
           {/* На мобильных - изображение первое, на десктопе - форма слева */}
           <div className="relative h-full">
-            <div className="relative rounded-2xl overflow-hidden shadow-2xl">
+            <div className="relative overflow-hidden rounded-2xl shadow-2xl">
               <img
                 src="/hero.jpg"
                 alt="Плазменная резка металла"
-                className="w-full h-[300px] md:h-[400px] lg:h-[500px] object-cover"
+                className="h-[300px] w-full object-cover md:h-[400px] lg:h-[500px]"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
               <div className="absolute top-6 left-6">
-                <div className="inline-flex items-center justify-center w-16 h-16 bg-accent/20 backdrop-blur-sm rounded-full">
+                <div className="bg-accent/20 inline-flex h-16 w-16 items-center justify-center rounded-full backdrop-blur-sm">
                   <Send className="h-8 w-8 text-white" />
                 </div>
               </div>
-              <div className="absolute bottom-6 left-6 right-6 text-white">
-                <h2 className="text-2xl md:text-3xl font-bold mb-3 text-balance">
+              <div className="absolute right-6 bottom-6 left-6 text-white">
+                <h2 className="mb-3 text-2xl font-bold text-balance md:text-3xl">
                   Оставить заявку на расчет
                 </h2>
-                <p className="text-sm md:text-base opacity-90 text-pretty">
+                <p className="text-sm text-pretty opacity-90 md:text-base">
                   Заполните форму и наши специалисты свяжутся с вами в течение 2
                   часов
                 </p>
@@ -104,16 +104,16 @@ export function ContactFormSection() {
             </div>
 
             {/* Декоративные элементы */}
-            <div className="absolute -top-4 -right-4 w-24 h-24 bg-accent/20 rounded-full blur-xl" />
-            <div className="absolute -bottom-4 -left-4 w-32 h-32 bg-accent/10 rounded-full blur-2xl" />
+            <div className="bg-accent/20 absolute -top-4 -right-4 h-24 w-24 rounded-full blur-xl" />
+            <div className="bg-accent/10 absolute -bottom-4 -left-4 h-32 w-32 rounded-full blur-2xl" />
           </div>
-          <div className="relative ">
-            <Card className="  bg-card/90 backdrop-blur-sm light ">
+          <div className="relative">
+            <Card className="bg-card/90 light backdrop-blur-sm">
               <CardContent className="p-8">
                 {isSubmitted ? (
                   <div className="flex flex-col items-center justify-center py-12 text-center">
-                    <CheckCircle className="h-16 w-16 text-accent mb-4" />
-                    <h3 className="text-2xl font-semibold text-foreground mb-2">
+                    <CheckCircle className="text-accent mb-4 h-16 w-16" />
+                    <h3 className="text-foreground mb-2 text-2xl font-semibold">
                       Спасибо за заявку!
                     </h3>
                     <p className="text-muted-foreground mb-6">
@@ -129,11 +129,11 @@ export function ContactFormSection() {
                   </div>
                 ) : (
                   <form onSubmit={handleSubmit} className="space-y-6">
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
                       <div className="space-y-2">
                         <label
                           htmlFor="name"
-                          className="text-sm font-medium text-foreground"
+                          className="text-foreground text-sm font-medium"
                         >
                           Ваше имя *
                         </label>
@@ -144,14 +144,14 @@ export function ContactFormSection() {
                           onChange={handleChange}
                           placeholder="Иван Иванов"
                           required
-                          className="bg-background/60 border-accent/20transition-all duration-200 shadow-lg"
+                          className="bg-background/60 border-accent/20transition-all shadow-lg duration-200"
                         />
                       </div>
 
                       <div className="space-y-2">
                         <label
                           htmlFor="phone"
-                          className="text-sm font-medium text-foreground"
+                          className="text-foreground text-sm font-medium"
                         >
                           Телефон *
                         </label>
@@ -163,16 +163,16 @@ export function ContactFormSection() {
                           onChange={handleChange}
                           placeholder="+7 (343) 333-33-33"
                           required
-                          className="bg-background/60 border-accent/20  transition-all duration-200 shadow-lg"
+                          className="bg-background/60 border-accent/20 shadow-lg transition-all duration-200"
                         />
                       </div>
                     </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
                       <div className="space-y-2">
                         <label
                           htmlFor="email"
-                          className="text-sm font-medium text-foreground"
+                          className="text-foreground text-sm font-medium"
                         >
                           Email
                         </label>
@@ -183,14 +183,14 @@ export function ContactFormSection() {
                           value={formData.email}
                           onChange={handleChange}
                           placeholder="info@company.ru"
-                          className="bg-background/60 border-accent/20  transition-all duration-200 shadow-lg"
+                          className="bg-background/60 border-accent/20 shadow-lg transition-all duration-200"
                         />
                       </div>
 
                       <div className="space-y-2">
                         <label
                           htmlFor="company"
-                          className="text-sm font-medium text-foreground"
+                          className="text-foreground text-sm font-medium"
                         >
                           Компания
                         </label>
@@ -200,7 +200,7 @@ export function ContactFormSection() {
                           value={formData.company}
                           onChange={handleChange}
                           placeholder="ООО 'Компания'"
-                          className="bg-background/60 border-accent/20  transition-all duration-200 shadow-lg"
+                          className="bg-background/60 border-accent/20 shadow-lg transition-all duration-200"
                         />
                       </div>
                     </div>
@@ -208,7 +208,7 @@ export function ContactFormSection() {
                     <div className="space-y-2">
                       <label
                         htmlFor="message"
-                        className="text-sm font-medium text-foreground"
+                        className="text-foreground text-sm font-medium"
                       >
                         Описание заказа *
                       </label>
@@ -220,7 +220,7 @@ export function ContactFormSection() {
                         placeholder="Опишите ваш заказ: материал, толщина, размеры, срочность..."
                         required
                         rows={6}
-                        className="bg-background/50 border-border/50  transition-all duration-200 resize-none"
+                        className="bg-background/50 border-border/50 resize-none transition-all duration-200"
                       />
                     </div>
 
@@ -228,7 +228,7 @@ export function ContactFormSection() {
                       <Button
                         type="submit"
                         size="lg"
-                        className="gap-2 flex-1 bg-gradient-to-r from-accent to-accent/80 hover:from-accent/90 hover:to-accent/70 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-[1.02] ring-2 ring-accent/20"
+                        className="from-accent to-accent/80 hover:from-accent/90 hover:to-accent/70 ring-accent/20 flex-1 transform gap-2 bg-gradient-to-r shadow-xl ring-2 transition-all duration-300 hover:scale-[1.02] hover:shadow-2xl"
                         disabled={isLoading}
                       >
                         <Send className="h-5 w-5" />
@@ -236,7 +236,7 @@ export function ContactFormSection() {
                       </Button>
                     </div>
 
-                    <p className="text-xs text-muted-foreground text-center">
+                    <p className="text-muted-foreground text-center text-xs">
                       Нажимая кнопку, вы соглашаетесь с обработкой персональных
                       данных
                     </p>
@@ -250,38 +250,38 @@ export function ContactFormSection() {
         </div>
 
         {/* Дополнительная информация - скрыта */}
-        <div className="mt-16 text-center hidden">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+        <div className="mt-16 hidden text-center">
+          <div className="mx-auto grid max-w-4xl grid-cols-1 gap-8 md:grid-cols-3">
             <div className="flex flex-col items-center space-y-3">
-              <div className="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center">
-                <span className="text-accent font-bold text-lg">2</span>
+              <div className="bg-accent/10 flex h-12 w-12 items-center justify-center rounded-full">
+                <span className="text-accent text-lg font-bold">2</span>
               </div>
-              <h3 className="font-semibold text-foreground">Быстрый ответ</h3>
-              <p className="text-sm text-muted-foreground">
+              <h3 className="text-foreground font-semibold">Быстрый ответ</h3>
+              <p className="text-muted-foreground text-sm">
                 Свяжемся в течение 2 часов
               </p>
             </div>
 
             <div className="flex flex-col items-center space-y-3">
-              <div className="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center">
-                <span className="text-accent font-bold text-lg">24</span>
+              <div className="bg-accent/10 flex h-12 w-12 items-center justify-center rounded-full">
+                <span className="text-accent text-lg font-bold">24</span>
               </div>
-              <h3 className="font-semibold text-foreground">
+              <h3 className="text-foreground font-semibold">
                 Работаем круглосуточно
               </h3>
-              <p className="text-sm text-muted-foreground">
+              <p className="text-muted-foreground text-sm">
                 Принимаем заказы 24/7
               </p>
             </div>
 
             <div className="flex flex-col items-center space-y-3">
-              <div className="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center">
-                <span className="text-accent font-bold text-lg">✓</span>
+              <div className="bg-accent/10 flex h-12 w-12 items-center justify-center rounded-full">
+                <span className="text-accent text-lg font-bold">✓</span>
               </div>
-              <h3 className="font-semibold text-foreground">
+              <h3 className="text-foreground font-semibold">
                 Гарантия качества
               </h3>
-              <p className="text-sm text-muted-foreground">
+              <p className="text-muted-foreground text-sm">
                 Современное оборудование
               </p>
             </div>

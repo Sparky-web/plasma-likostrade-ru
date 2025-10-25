@@ -38,13 +38,13 @@ export function PortfolioSection() {
 
   const goToPrevious = () => {
     setCurrentIndex((prev) =>
-      prev === 0 ? portfolioItems.length - 1 : prev - 1
+      prev === 0 ? portfolioItems.length - 1 : prev - 1,
     );
   };
 
   const goToNext = () => {
     setCurrentIndex((prev) =>
-      prev === portfolioItems.length - 1 ? 0 : prev + 1
+      prev === portfolioItems.length - 1 ? 0 : prev + 1,
     );
   };
 
@@ -54,13 +54,13 @@ export function PortfolioSection() {
     currentIndex === portfolioItems.length - 1 ? 0 : currentIndex + 1;
 
   return (
-    <section className="pt-12 bg-muted/30 scroll-mt-[100px]" id="portfolio">
+    <section className="bg-muted/30 scroll-mt-[100px] pt-12" id="portfolio">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4 text-balance">
+        <div className="mb-16 text-center">
+          <h2 className="text-foreground mb-4 text-3xl font-bold text-balance md:text-4xl">
             Примеры наших работ
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto text-pretty">
+          <p className="text-muted-foreground mx-auto max-w-2xl text-lg text-pretty">
             Галерея выполненных проектов плазменной резки металла
           </p>
         </div>
@@ -68,11 +68,11 @@ export function PortfolioSection() {
         <div className="max-w-8xl mx-auto">
           {/* Карусель */}
           <div className="relative">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
+            <div className="mb-8 grid grid-cols-1 gap-4 md:grid-cols-3">
               {/* Левый элемент для предпросмотра */}
               <div className="hidden md:block">
-                <Card className="opacity-50 hover:opacity-75 transition-opacity cursor-pointer overflow-hidden">
-                  <CardContent className="p-0 aspect-square relative">
+                <Card className="cursor-pointer overflow-hidden opacity-50 transition-opacity hover:opacity-75">
+                  <CardContent className="relative aspect-square p-0">
                     <Image
                       src={
                         portfolioItems[getPrevIndex()].image ||
@@ -88,8 +88,8 @@ export function PortfolioSection() {
 
               {/* Текущий элемент в центре */}
               <div className="md:col-start-2">
-                <Card className="overflow-hidden border-2 border-accent/50 shadow-lg">
-                  <CardContent className="p-0 aspect-square relative bg-muted/50">
+                <Card className="border-accent/50 overflow-hidden border-2 shadow-lg">
+                  <CardContent className="bg-muted/50 relative aspect-square p-0">
                     <Image
                       src={
                         portfolioItems[currentIndex].image || "/placeholder.svg"
@@ -113,14 +113,14 @@ export function PortfolioSection() {
 
               {/* Правый элемент для предпросмотра */}
               <div className="hidden md:block">
-                <Card className="opacity-50 hover:opacity-75 transition-opacity cursor-pointer overflow-hidden">
-                  <CardContent className="p-0 aspect-square relative">
+                <Card className="cursor-pointer overflow-hidden opacity-50 transition-opacity hover:opacity-75">
+                  <CardContent className="relative aspect-square p-0">
                     <Image
                       src={
-                        portfolioItems[getNextIndex()].image ||
+                        portfolioItems[getNextIndex()]?.image ||
                         "/placeholder.svg"
                       }
-                      alt={portfolioItems[getNextIndex()].title}
+                      alt={portfolioItems[getNextIndex()]?.title || ""}
                       fill
                       className="object-cover"
                     />
@@ -140,7 +140,7 @@ export function PortfolioSection() {
             </div>
 
             {/* Индикатор позиции */}
-            <div className="text-center mt-6 text-sm text-muted-foreground">
+            <div className="text-muted-foreground mt-6 text-center text-sm">
               {currentIndex + 1} из {portfolioItems.length}
             </div>
           </div>
